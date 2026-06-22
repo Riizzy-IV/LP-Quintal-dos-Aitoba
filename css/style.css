@@ -909,6 +909,7 @@ ul {
   z-index: 2;
   margin: 0 -60px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .35);
+  cursor: zoom-in;
 }
 
 .lazer__slide img {
@@ -1484,6 +1485,117 @@ ul {
 .footer__copy {
   color: rgba(255, 255, 255, .7);
   font-size: 13px;
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .9);
+  padding: 60px;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox__figure {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightbox__figure img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 120px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .5);
+}
+
+.lightbox__figure figcaption {
+  margin-top: 16px;
+  text-align: center;
+  color: var(--cream);
+  font-size: 14px;
+}
+
+.lightbox__figure figcaption em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.lightbox__nav img {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.lightbox__nav--prev {
+  left: 24px;
+}
+
+.lightbox__nav--next {
+  right: 24px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 24px;
+  }
+
+  .lightbox__close {
+    top: 12px;
+    right: 16px;
+    font-size: 32px;
+  }
+
+  .lightbox__nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .lightbox__nav--prev {
+    left: 8px;
+  }
+
+  .lightbox__nav--next {
+    right: 8px;
+  }
 }
 
 /* ===== Responsive: Notebook (<=1366px) ===== */

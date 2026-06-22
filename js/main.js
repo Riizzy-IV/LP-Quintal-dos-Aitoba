@@ -92,6 +92,65 @@ if (lazerTracks.length) {
     document.getElementById('lazerTrackApto').classList.add('is-active');
     document.getElementById('lazerTrackLazer').classList.remove('is-active');
   });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  let lightboxIndex = 0;
+
+  const openLightbox = (slide) => {
+    const track = getActiveTrack();
+    lightboxIndex = [...track.children].indexOf(slide);
+    showLightboxSlide(track);
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const showLightboxSlide = (track) => {
+    const slides = [...track.children];
+    const slide = slides[lightboxIndex];
+    const img = slide.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.innerHTML = slide.querySelector('figcaption').innerHTML;
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.lazer__slide').forEach(slide => {
+    slide.addEventListener('click', () => openLightbox(slide));
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  lightboxPrev.addEventListener('click', () => {
+    const track = getActiveTrack();
+    lightboxIndex = (lightboxIndex - 1 + track.children.length) % track.children.length;
+    showLightboxSlide(track);
+  });
+
+  lightboxNext.addEventListener('click', () => {
+    const track = getActiveTrack();
+    lightboxIndex = (lightboxIndex + 1) % track.children.length;
+    showLightboxSlide(track);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxPrev.click();
+    if (e.key === 'ArrowRight') lightboxNext.click();
+  });
 }
 
 const contatoForm = document.getElementById('contatoForm');

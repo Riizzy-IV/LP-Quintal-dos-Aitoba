@@ -298,30 +298,30 @@
 
     <div class="lazer__viewport">
       <div class="lazer__track is-active" id="lazerTrackLazer" data-group="lazer">
-        <figure class="lazer__slide">
+        <figure class="lazer__slide" data-lightbox-caption="Perspectiva ilustrada da piscina">
           <img src="assets/img/lazer-piscina.avif" alt="Perspectiva ilustrada da piscina">
           <figcaption>Perspectiva ilustrada da <em>piscina</em></figcaption>
         </figure>
-        <figure class="lazer__slide lazer__slide--main">
+        <figure class="lazer__slide lazer__slide--main" data-lightbox-caption="Perspectiva ilustrada do espaço de convivência">
           <img src="assets/img/lazer-convivencia.avif" alt="Perspectiva ilustrada do espaço de convivência">
           <figcaption>Perspectiva ilustrada do <em>espaço de convivência</em></figcaption>
         </figure>
-        <figure class="lazer__slide">
+        <figure class="lazer__slide" data-lightbox-caption="Perspectiva ilustrada do salão de festas">
           <img src="assets/img/lazer-salao.avif" alt="Perspectiva ilustrada do salão de festas">
           <figcaption>Perspectiva ilustrada do <em>salão de festas</em></figcaption>
         </figure>
       </div>
 
       <div class="lazer__track" id="lazerTrackApto" data-group="apartamentos">
-        <figure class="lazer__slide">
+        <figure class="lazer__slide" data-lightbox-caption="Perspectiva ilustrada da cozinha">
           <img src="assets/img/aptos-cozinha.avif" alt="Perspectiva ilustrada da cozinha">
           <figcaption>Perspectiva ilustrada da <em>cozinha</em></figcaption>
         </figure>
-        <figure class="lazer__slide lazer__slide--main">
+        <figure class="lazer__slide lazer__slide--main" data-lightbox-caption="Perspectiva ilustrada da sala">
           <img src="assets/img/aptos-sala.avif" alt="Perspectiva ilustrada da sala">
           <figcaption>Perspectiva ilustrada da <em>sala</em></figcaption>
         </figure>
-        <figure class="lazer__slide">
+        <figure class="lazer__slide" data-lightbox-caption="Perspectiva ilustrada do dormitório">
           <img src="assets/img/aptos-quarto.avif" alt="Perspectiva ilustrada do dormitório">
           <figcaption>Perspectiva ilustrada do <em>dormitório</em></figcaption>
         </figure>
@@ -522,6 +522,20 @@
     <p class="footer__copy">&copy; 2026, ENGTR. Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Anterior">
+    <img src="assets/icons/chevron-left.svg" alt="">
+  </button>
+  <figure class="lightbox__figure">
+    <img src="" alt="" id="lightboxImg">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Próximo">
+    <img src="assets/icons/chevron-left.svg" alt="">
+  </button>
+</div>
 
 <script src="js/main.js"></script>
 </body>
