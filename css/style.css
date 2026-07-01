@@ -165,7 +165,23 @@ ul {
   width: 100%;
   height: 2px;
   background: var(--dark);
-  transition: transform .3s ease, opacity .3s ease;
+  transition: transform .3s ease, opacity .3s ease, background-color .3s ease;
+}
+
+.header__burger.is-active span {
+  background: var(--cream);
+}
+
+.header__burger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__burger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ===== Hero ===== */
@@ -691,7 +707,7 @@ ul {
   flex-shrink: 0;
   width: 680px;
   height: 364px;
-  margin-top: -120px;
+  margin-top: 0px;
   margin-right: -190px;
   padding: 32px;
   display: flex;
@@ -1805,6 +1821,7 @@ ul {
 
   .plantas__img {
     max-width: 100%;
+    margin-top: -60px;
   }
 
   .lazer {
@@ -2066,6 +2083,9 @@ ul {
 
   .plantas__tabs {
     gap: 16px;
+    padding-left: 0;
+    justify-content: center;
+    margin-bottom: 32px;
   }
 
   .lazer__tabs {
@@ -2081,6 +2101,18 @@ ul {
 
   .plantas__viewport {
     gap: 8px;
+  }
+
+  .plantas__nav {
+    top: 72%;
+  }
+
+  .plantas__nav--prev {
+    left: 8px;
+  }
+
+  .plantas__nav--next {
+    right: 8px;
   }
 
   .plantas__card {
